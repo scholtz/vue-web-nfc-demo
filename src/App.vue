@@ -1,13 +1,13 @@
 <template>
   <div class="layout">
-    <va-card>
-      <va-card-content>
+    <Card>
+      <template #content>
         <div>Has NFC: {{ hasNFC() }}</div>
         <div>Latest Read: {{ latest }}</div>
         <div>Error: {{ error || `No error` }}</div>
         <div>Status: {{ status }}</div>
-      </va-card-content>
-    </va-card>
+      </template>
+    </Card>
     <template v-if="hasNFC()">
       <ReadNFC />
       <WriteNFC />
@@ -21,10 +21,11 @@ import { defineComponent, computed } from "vue";
 import useNFC, { NFCStatus } from "./composition/useNFC";
 import WriteNFC from "./components/WriteNFC.vue";
 import ReadNFC from "./components/ReadNFC.vue";
+import Card from 'primevue/card';
 
 export default defineComponent({
   name: "App",
-  components: { WriteNFC, ReadNFC },
+  components: { WriteNFC, ReadNFC,Card },
   setup() {
     const hasNFC = () => {
       return "NDEFReader" in window;

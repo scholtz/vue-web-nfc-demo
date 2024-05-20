@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import { VuesticPlugin } from "vuestic-ui";
-import "vuestic-ui/dist/vuestic-ui.css";
+import PrimeVue from 'primevue/config';
 
-createApp(App).use(VuesticPlugin).mount("#app");
+import 'primevue/resources/themes/aura-light-green/theme.css'
+
+createApp(App).use(PrimeVue).mount("#app");

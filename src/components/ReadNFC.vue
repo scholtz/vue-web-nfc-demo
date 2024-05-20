@@ -1,20 +1,23 @@
 <template>
-  <va-card>
-    <va-card-content>
-      <va-button @click="startReading()" v-if="!is(NFCStatus.READING)">
+  <Card>
+    <template #content>
+      <Button @click="startReading()" v-if="!is(NFCStatus.READING)">
         Start Reading
-      </va-button>
-      <va-button color="danger" @click="stopReading()" v-else>
+      </Button>
+      <Button color="danger" @click="stopReading()" v-else>
         Stop Reading
-      </va-button>
-    </va-card-content>
-  </va-card>
+      </Button>
+    </template>
+  </Card>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
 import useNFC, { NFCStatus } from "../composition/useNFC";
+import Card from 'primevue/card';
+import Button from 'primevue/button';
 
 export default defineComponent({
+  components: { Button, Card },
   setup() {
     const { startReading, stopReading, is } = useNFC();
     return { NFCStatus, startReading, stopReading, is };

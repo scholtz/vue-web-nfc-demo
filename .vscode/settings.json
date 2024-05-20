@@ -1,0 +1,29 @@
+{
+  "folders": [],
+  "settings": {},
+  "vetur.validation.template": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatter.css": "prettier",
+  "vetur.format.defaultFormatter.postcss": "prettier",
+  "vetur.format.defaultFormatter.scss": "prettier",
+  "vetur.format.defaultFormatter.less": "prettier",
+  "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
+  "vetur.format.defaultFormatter.js": "prettier",
+  "vetur.format.defaultFormatter.ts": "prettier",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.tabSize": 2,
+  "editor.wordWrapColumn": 200,
+  "editor.rulers": [200],
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 200,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "prettier.prettierPath": "node_modules/prettier/index.cjs"
+}

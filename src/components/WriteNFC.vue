@@ -1,19 +1,22 @@
 <template>
-  <va-card>
-    <va-card-content>
-      <va-button class="ma-1" @click="writeNFC"> Write Text </va-button>
-      <va-button class="ma-1" @click="writeURL"> Write URL </va-button>
-      <va-button class="ma-1" @click="writeEmpty"> Write Empty </va-button>
-      <va-button class="ma-1" @click="abortWrite"> Abort Write </va-button>
+  <Card>
+    <template #content>
+      <Button class="ma-1" @click="writeNFC"> Write Text </Button>
+      <Button class="ma-1" @click="writeURL"> Write URL </Button>
+      <Button class="ma-1" @click="writeEmpty"> Write Empty </Button>
+      <Button class="ma-1" @click="abortWrite"> Abort Write </Button>
       <div>Latest Write: {{ latestWrite || `N/A` }}</div>
-    </va-card-content>
-  </va-card>
+    </template>
+  </Card>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
 import useNFC from "../composition/useNFC";
+import Card from 'primevue/card';
+import Button from 'primevue/button'
 
 export default defineComponent({
+  components: { Button, Card },
   setup() {
     const { write, latestWrite, abortWrite } = useNFC();
 

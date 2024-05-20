@@ -2,21 +2,22 @@
   "name": "vue-nfc-demo",
   "version": "0.1.0",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "test": "jest src"
   },
   "dependencies": {
     "@vueuse/core": "^10.9.0",
-    "vue": "^3.4.27",
-    "vuestic-ui": "^1.9.10"
+    "primevue": "^3.52.0",
+    "vue": "^3.4.27"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.12",
+    "@babel/types": "^7.24.5",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/compiler-sfc": "^3.4.27",
     "@vue/test-utils": "^2.4.6",
+    "prettier": "^3.2.5",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vue-tsc": "^2.0.19"
