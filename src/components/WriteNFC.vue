@@ -1,11 +1,12 @@
 <template>
   <Card>
     <template #content>
-      <Button class="ma-1" @click="writeNFC"> Write Text </Button>
-      <Button class="ma-1" @click="writeURL"> Write URL </Button>
-      <Button class="ma-1" @click="writeEmpty"> Write Empty </Button>
-      <Button class="ma-1" @click="abortWrite"> Abort Write </Button>
+      <Button class="m-1" @click="writeNFC"> Write Text </Button>
+      <Button class="m-1" @click="writeURL"> Write URL </Button>
+      <Button class="m-1" @click="writeEmpty"> Write Empty </Button>
+      <Button class="m-1" @click="abortWrite"> Abort Write </Button>
       <div>Latest Write: {{ latestWrite || `N/A` }}</div>
+      <div>Last error: {{lastError}}</div>
     </template>
   </Card>
 </template>
@@ -19,7 +20,9 @@ export default defineComponent({
   components: { Button, Card },
   setup() {
     const { write, latestWrite, abortWrite } = useNFC();
-
+    const state = reactive({
+      lastError: ""
+    })
     const writeNFC = () => {
       write({
         records: [{ recordType: "text", data: "Hello World" }],
@@ -34,6 +37,7 @@ export default defineComponent({
           { recordType: "url", data: "https://w3c.github.io/web-nfc/" },
         ],
       }).catch((e) => {
+        state.lastError = e.message
         console.log(e);
       });
     };
@@ -42,6 +46,7 @@ export default defineComponent({
       write({
         records: [{ recordType: "empty" }],
       }).catch((e) => {
+        state.lastError = e.message
         console.log(e);
       });
     };

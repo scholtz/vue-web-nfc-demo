@@ -1,10 +1,10 @@
 <template>
   <Card>
     <template #content>
-      <Button @click="startReading()" v-if="!is(NFCStatus.READING)">
+      <Button @click="startReading()" class="m-1" v-if="!is(NFCStatus.READING)">
         Start Reading
       </Button>
-      <Button color="danger" @click="stopReading()" v-else>
+      <Button severity="danger" class="m-1" @click="stopReading()" v-else>
         Stop Reading
       </Button>
     </template>

@@ -6,12 +6,16 @@
         <div>Latest Read: {{ latest }}</div>
         <div>Error: {{ error || `No error` }}</div>
         <div>Status: {{ status }}</div>
+        <div v-if="hasNFC()">
+          <ReadNFC />
+          <WriteNFC />
+        </div>
+        <div>
+          <div>Scan the QR code to easy navigate to the demo on mobile:</div>
+          <img src="/demo-link.png" />
+        </div>
       </template>
     </Card>
-    <template v-if="hasNFC()">
-      <ReadNFC />
-      <WriteNFC />
-    </template>
   </div>
 </template>
 

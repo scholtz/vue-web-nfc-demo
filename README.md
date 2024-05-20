@@ -2,6 +2,12 @@
 
 This is an example project showing off Chrome's new NFC capabilities.
 
+## DEMO
+
+https://vue-web-nfc-demo.vercel.app
+
+![QR](public/demo-link.png)
+
 ### Device Requirements
 NFC only works on ***Chrome 89 and above*** on ***Android phones with NFC***. The code detects whether the browser supports NFC, but not if your phone has NFC capabilities.
 
@@ -16,10 +22,10 @@ Because the code ***only*** works on phones, follow [these steps](https://develo
 ### Project Setup
 Install Dependencies
 ```
-yarn
+npm ci
 ```
 Run Local Server
 ```
-yarn dev
+npm run dev
 ```
 Then connect to the server IP on your phone. HTTPS must be enabled for NFC to work.
