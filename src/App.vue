@@ -4,6 +4,7 @@
       <template #content>
         <div>Has NFC: {{ hasNFC() }}</div>
         <div>Latest Read: {{ latest }}</div>
+        <div>Latest Message: {{ latestMessage }}</div>        
         <div>Error: {{ error || `No error` }}</div>
         <div>Status: {{ status }}</div>
         <div v-if="hasNFC()">
@@ -42,11 +43,18 @@ export default defineComponent({
         ? nfc.latestRead.value.message.records[0].recordType
         : "N/A";
     });
+    const latestMessage = computed(() => {
+      return nfc.latestRead?.value
+        ? nfc.latestRead.value.message
+        : "N/A";
+    });
+
 
     return {
       hasNFC,
       NFCStatus,
       latest,
+      latestMessage,
       ...nfc,
     };
   },
