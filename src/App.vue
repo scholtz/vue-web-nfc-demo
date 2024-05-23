@@ -42,7 +42,7 @@ export default defineComponent({
       return nfc.latestRead?.value && nfc.latestRead.value.message && nfc.latestRead.value.message.records[0] ? nfc.latestRead.value.message.records[0].recordType : "N/A";
     });
     const latestMessage = computed(() => {
-      return nfc.latestRead?.value ? nfc.latestRead.value.message : "N/A";
+      return nfc.latestRead?.value ? JSON.stringify(nfc.latestRead.value) : "N/A";
     });
 
     return {
