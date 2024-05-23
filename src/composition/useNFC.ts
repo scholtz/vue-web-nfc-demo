@@ -75,6 +75,7 @@ const latestWrite = ref();
 
 ndef.addEventListener("reading", (ev) => {
   if (!_ignoreRead) {
+    console.log("NFC read ev", ev);
     latestRead.value = ev as NDEFReadingEvent;
   }
 });
@@ -89,9 +90,7 @@ const startReading = (timeout?: number) => {
     _readTimeout = window.setTimeout(stopReading, timeout);
   }
 
-  return ndef
-    .scan({ signal: _readAbort.signal })
-    .catch((err) => (error.value = err));
+  return ndef.scan({ signal: _readAbort.signal }).catch((err) => (error.value = err));
 };
 
 const stopReading = () => {
