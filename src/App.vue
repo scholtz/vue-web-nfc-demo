@@ -4,6 +4,7 @@
       <template #content>
         <div>Has NFC: {{ hasNFC() }}</div>
         <div>Latest Read: {{ latest }}</div>
+        <div>serialNumber: {{ serialNumber }}</div>
         <div>Latest Message: {{ latestMessage }}</div>
         <div>Error: {{ error || `No error` }}</div>
         <div>Status: {{ status }}</div>
@@ -44,12 +45,16 @@ export default defineComponent({
     const latestMessage = computed(() => {
       return nfc.latestRead?.value ? JSON.stringify(nfc.latestRead.value) : "N/A";
     });
+    const serialNumber = computed(() => {
+      return nfc.latestRead?.value ? JSON.stringify(nfc.latestRead.value.serialNumber) : "N/A";
+    });
 
     return {
       hasNFC,
       NFCStatus,
       latest,
       latestMessage,
+      serialNumber,
       ...nfc,
     };
   },
