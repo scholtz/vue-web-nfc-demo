@@ -4,7 +4,7 @@
       <template #content>
         <div>Has NFC: {{ hasNFC() }}</div>
         <div>Latest Read: {{ latest }}</div>
-        <div>Latest Message: {{ latestMessage }}</div>        
+        <div>Latest Message: {{ latestMessage }}</div>
         <div>Error: {{ error || `No error` }}</div>
         <div>Status: {{ status }}</div>
         <div v-if="hasNFC()">
@@ -26,11 +26,11 @@ import { defineComponent, computed } from "vue";
 import useNFC, { NFCStatus } from "./composition/useNFC";
 import WriteNFC from "./components/WriteNFC.vue";
 import ReadNFC from "./components/ReadNFC.vue";
-import Card from 'primevue/card';
+import Card from "primevue/card";
 
 export default defineComponent({
   name: "App",
-  components: { WriteNFC, ReadNFC,Card },
+  components: { WriteNFC, ReadNFC, Card },
   setup() {
     const hasNFC = () => {
       return "NDEFReader" in window;
@@ -39,16 +39,11 @@ export default defineComponent({
     const nfc = useNFC();
 
     const latest = computed(() => {
-      return nfc.latestRead?.value
-        ? nfc.latestRead.value.message.records[0].recordType
-        : "N/A";
+      return nfc.latestRead?.value && nfc.latestRead.value.message && nfc.latestRead.value.message.records[0] ? nfc.latestRead.value.message.records[0].recordType : "N/A";
     });
     const latestMessage = computed(() => {
-      return nfc.latestRead?.value
-        ? nfc.latestRead.value.message
-        : "N/A";
+      return nfc.latestRead?.value ? nfc.latestRead.value.message : "N/A";
     });
-
 
     return {
       hasNFC,
